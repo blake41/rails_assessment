@@ -1,0 +1,21 @@
+Rails Assesment
+
+How does rails communicate with the database?  Please be thorough in discussing all the config files and pieces of rails necessary to communicate with the database.
+
+
+
+What is a resource?
+
+What are the standard RESTful routes for a resource?
+
+What is CRUD?
+
+What is REST?
+
+What is the difference between CRUD and REST?
+
+Describe the flow of a request from a users browser through the rails stack and back.
+
+What are HTTP verbs?
+
+Why do we use migrations.
