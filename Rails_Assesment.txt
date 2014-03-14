@@ -3,7 +3,7 @@ Rails Assesment
 The answers to this assesment should be submitted in the form of a link to a github repo
 The repository should be a rails app with one additional file in the root directory called assesment.txt
 
-Create a blog.
+Create a blog. https://github.com/ErikPeterson/rails-assessment
 
 The blog should have the ability to have posts and comments on posts.  There's no need to add a user model.
 
@@ -12,19 +12,30 @@ From any post I should be able to both see all the comments and add a comment my
 Questions to be answered in the assesment.txt file.
 
 How does rails communicate with the database?  Please be thorough in discussing all the config files and pieces of rails necessary to communicate with the database.
+Rails communicates with the database through the Active Record ORM interface. In the test and dev environments, sqlite database files are generall stored locally in the db folder for local use. The database.yml file is used to esatablish the databases for varioius environments.
 
 What is a resource?
+A resource is an individual object in the domain model of a Rails application or other RESTful architecture. Resources can be accessed through endpoints, and represent a collection of data and behavior.
 
 What are the standard RESTful routes for a resource?
+Index, New, Create, Edit, Update, Destroy
 
 What is CRUD?
+CRUD reperesents the actions that an Object Resource Manager should be able to perform on the resources in its attached database:
+Create, Read, Update, Delete
 
 What is REST?
+REST stands for REpresentational State Transfer. It's a pattern for buidling applications that transfers a complete representation of the state of a resource to the end user based on the endpoint of their requests.
 
 What is the difference between CRUD and REST?
+REST is an architecture that normalizes the relationship between an applications URLS or endpoints and the CRUD actions that will be performed on the resources represented by those endpoints.
 
 Describe the flow of a request from a users browser through the rails stack and back.
+Browser Sends Request -> Server Receives Request -> Server Passes Request to Rack -> Rack passes the request through the Rails middleware -> Rails parses the request for a matching route -> Rails passes the request to the appropriate controller action -> The Controller action loads the asked for resource, and renders a view for the browser -> The response is passed back down the middleware stack to rack -> Rack passes the HTTP response to the server -> the server sends the response back to the user's browser
 
 What are HTTP verbs?
+GET, POST, PUT, PATCH, DELETE 
+Read resource, create resource, replace resource, update resouce, delete resource
 
 Why do we use migrations.
+Both to prove ActiveRecord with information for generating database tables and columns, and to provide ourselves with a linear narrative of the development of our database schema.
