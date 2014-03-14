@@ -1,0 +1,39 @@
+Rails Assesment
+
+How does rails communicate with the database?  Please be thorough in discussing all the config files and pieces of rails necessary to communicate with the database.
+
+** Rails creates database migrations for us. This can be as low-level as creating a migration file in the db/migrate folder or much higher level - for example, when we run rails g model post name:string, rails will actually go ahead and create the migration file for us, creating a new posts table and including the column name with value string. Cool, huh?
+
+What is a resource?
+
+** A resource provides us with our routes. For example, adding resources: posts to our routes file will actually create quite a few routes for us. Just run 'rake routes' from your terminal to see them all.
+
+What are the standard RESTful routes for a resource?
+
+** There are seven: index, new, create, show, edit, update, destroy
+
+What is CRUD?
+
+** These are the standard actions we can do, CREATE/READ/UPDATE/DESTROY
+
+What is REST?
+
+** Representational state transfer (REST) is an architectural style.
+
+What is the difference between CRUD and REST?
+
+** CRUD implements behavior while REST is a suggested standard for URLs.
+
+Describe the flow of a request from a users browser through the rails stack and back.
+
+** Browser Request > Controller > Model > View > Web Server > Browser Rendering
+
+** Note, the controller connects the model with the view. However, the controller should not include any database-related activity, all of that should be handled by the model. 
+
+What are HTTP verbs?
+
+** GET, POST, PATCH/PUT and DELETE -- Sound familiar, yep, that's CRUD!
+
+Why do we use migrations.
+
+** Migrations help us to keep our database organized. With a migration, we have a specific timestamp tied to whatever activity we're doing on the database (e.g. adding tables, columns, etc). What's AWESOME about migrations is that if we're working on a team of multiple people, and we all update the migration aroudn the same time, rails will keep all of these organized for us (with timestamps!) so that there aren't any errors. Yay!
