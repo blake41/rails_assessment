@@ -1,30 +1,37 @@
-Rails Assesment
+Rails Assessment
 
-The answers to this assesment should be submitted in the form of a link to a github repo
-The repository should be a rails app with one additional file in the root directory called assesment.txt
-
-Create a blog.
-
-The blog should have the ability to have posts and comments on posts.  There's no need to add a user model.
-
-From any post I should be able to both see all the comments and add a comment myself.
-
-Questions to be answered in the assesment.txt file.
 
 How does rails communicate with the database?  Please be thorough in discussing all the config files and pieces of rails necessary to communicate with the database.
 
+Initially, after successfully creating the database by use of migrations, rails communicates w/ it through the Models & their included ActiveRecord associations. Associations can be saved by creating a new instance of a primary (has_many) model and calling the plural form of the associated (belongs_to) model onto the instance like a method, e.g.:
+pc = PrimaryClassWood.new
+pcm.associatedclasslight << AssociatedClassFire.create(tool: "lighter"). 
+
+
 What is a resource?
+A resource is an object accessible via a URI to perform CRUD operations. 
 
 What are the standard RESTful routes for a resource?
+GET / POST / PATCH/PUT / DELETE
 
 What is CRUD?
+CREATE UPDATE DELETE. Normallly refers to a Db.
 
 What is REST?
+Representational State Transfer. It's an architectural style w/ several constrains to simplify building we applications for CRUD operations.
+
 
 What is the difference between CRUD and REST?
+REST is a style, CRUD is a process.
 
 Describe the flow of a request from a users browser through the rails stack and back.
+User => Route => Controller (Model) => View => Route => User
 
 What are HTTP verbs?
+GET & POST are two which signify to the routes what kind of request is made by the browser. Based on this information the server will either perform a get or a post request. Get requests have views & forms that usually post their content via post requests.
+
 
 Why do we use migrations.
+Because they are wonderful! Stuff is easy using migrations. The avantage of migrations is that we can drop the database and migrate it to create the same layout as we had priorly. Sometime, especially during testing, this comes in very handy.
+
+
