@@ -4,6 +4,7 @@ The answers to this assesment should be submitted in the form of a link to a git
 The repository should be a rails app with one additional file in the root directory called assesment.txt
 
 Create a blog.
+https://github.com/TSiege/someblogy
 
 The blog should have the ability to have posts and comments on posts.  There's no need to add a user model.
 
@@ -12,19 +13,49 @@ From any post I should be able to both see all the comments and add a comment my
 Questions to be answered in the assesment.txt file.
 
 How does rails communicate with the database?  Please be thorough in discussing all the config files and pieces of rails necessary to communicate with the database.
+Rails uses ActiveRecord as the mediator between it's own dsl and whatever sql language chosen to write the database.  
+This connection is stored in the config/ directory in the database.yml file.
+The databaase.yml gives ActiveRecord paramters on how to connect to the database for various stages of deleveopment of the project.
+AcitveRecord uses the convention that in rails the database is always in the db/ which is in the root of the application.
+Now ActiveRecord can connect to the database and run migrations, create schema, or query the database and convert those results into objects.
 
 What is a resource?
+A resource in Rails is essentially an object, form OOP, that in the case of rails has complete CRUD capabilities in the browser.
+This means that the object can connect to and be instantiated by information from the app's database, which can then be displayed in a view.
 
 What are the standard RESTful routes for a resource?
+RESTful routes are urls whose path themselves describe the actions the request from the browers.
+Such paths are derived from the type of HTTP request, or verb, being made, GET, POST, PATCH, and DELETE.
+an example of each are,
+GET #=> website.com/users
+POST #=> website.com/users (this is the destination of a post request that would be sent via website.com/users/new)
+PATCH #=> website.com/users/:id (this is the destination of patch request sent via website.com/users/:id/edit, :id being a variable specific to an individual user)
+DELETE #=> website.com/users/:id (this link would likely be a link or button pressed via the show page or index of users, it is generally rerouted to the index page when successul)
+
 
 What is CRUD?
+Create, Read, Update, and Delete, are the four vital functions to manipulate data and resources.  
+It is generally used when refering to database functionality either directly or indirectly.
 
 What is REST?
+See above.
 
 What is the difference between CRUD and REST?
+A web browser uses REST, well designed urls, to perform HTTP requests that perform CRUD actions remotely with data or resources.
+RESTful urls can be thought of as well written CRUD instructions to a server via a web browser. 
 
 Describe the flow of a request from a users browser through the rails stack and back.
+1. The webbrowser sends a request, such as a GET request to see a websites homepage.
+2. Rails intercepts the 
 
 What are HTTP verbs?
+HTTP verbs are a universal internet protocol for computers to interact with one another.
+The four common HTTP verbs are:
+1. GET, a request to view a specific resource.
+2. POST, a request to submit informtation in order to create a resource of some sort.
+3. PATCH, a request to update or edit an existing resource.
+4. DELETE, a request to delete a resource.
 
 Why do we use migrations.
+Migrations are a way of editing database schema via ActiveRecord without writing the sql statements ourselves.
+In rails migrations also have the added benefit of being recorded and timestamped to make revisions easier.
